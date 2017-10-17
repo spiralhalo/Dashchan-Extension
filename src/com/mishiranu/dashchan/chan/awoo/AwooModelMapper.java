@@ -23,7 +23,7 @@ public final class AwooModelMapper {
             String resto = String.valueOf(jsonObject.getInt("parent"));
             post.setParentPostNumber(resto);
         }
-        post.setTimestamp(jsonObject.getLong("date_posted"));
+        post.setTimestamp(jsonObject.getLong("date_posted") * 1000);
         String name = CommonUtils.optJsonString(jsonObject, "hash");
         if (name != null) {
             name = StringUtils.nullIfEmpty(StringUtils.clearHtml(name).trim());
